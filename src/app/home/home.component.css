@@ -1,0 +1,37 @@
+mat-grid-tile {
+    background: lightblue;
+  }
+.cardContainer {
+  border-radius: 30px;
+  max-width: 350px;
+}
+.avatarProfile {
+  border-radius: 50%;
+}
+.menu_viewProfile {
+  margin-left: 10px;
+}
+.viewProfile {
+  width: 30px;
+  padding-right: 5px;
+}
+.cardContent {
+  word-wrap: break-word;
+}
+.tags {
+  display: inline-flex;
+}
+.tags a{
+  padding: 12px;
+}
+.imagePost {
+  padding-left: 30px;
+  width: 330px;
+  height: 200px;
+}
+.love_icon {
+  width: 27px;
+}
+.comment_icon {
+  width: 27px;
+}

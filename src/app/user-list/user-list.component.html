@@ -1,0 +1,20 @@
+<div class="uk-container uk-container-xsmall">
+    <mat-grid-list cols="1" rowHeight="350" gutterSize="0px">
+        <mat-grid-tile *ngFor="let data of users.data" style="background-color: blueviolet;">
+            <mat-card class="cardContainer">
+                    <img class="imageProfile" mat-card-image src="{{data.picture}}">
+
+                <mat-card-content class="cardContent center">
+                    <p>{{data.title}}. {{data.firstName}} {{data.lastName}}</p>
+                    <p>{{data.email}}</p>
+                </mat-card-content>
+                <mat-card-actions class="center">
+                  <button mat-raised-button color="primary">View Profile</button>
+                </mat-card-actions>
+              </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+<router-outlet></router-outlet>
+  
+  

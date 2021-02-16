@@ -1,0 +1,43 @@
+<div class="uk-container uk-container-xsmall">
+    <mat-grid-list cols="2" rowHeight="530" gutterSize="0px">
+        <mat-grid-tile *ngFor="let data of posts.data">
+            <mat-card class="cardContainer">
+                <mat-card-header>
+                  <div mat-card-avatar>
+                    <img class="avatarProfile" src="{{data.owner.picture}}" alt="Profile Picture">
+                  </div>
+                  <mat-card-title>{{data.owner.firstName}} {{data.owner.lastName}}</mat-card-title>
+                  <mat-card-subtitle>{{data.publishDate | date: "medium"}}</mat-card-subtitle>
+                  <div class="menu_viewProfile">
+                    <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Post menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <img class="viewProfile" src="{{profile}}" alt="view profile">
+                      <span routerLink="/userProfile/{{data.owner.id}}">View Profile</span>
+                    </button>
+                    </mat-menu>
+                  </div>
+                </mat-card-header>
+                    <img class="imagePost" mat-card-image src="{{data.image}}">
+
+                
+                <mat-card-content class="cardContent center">
+                    <div class="tags" *ngFor="let tags of data.tags">
+                        <a routerLink="/tag/{{tags}}">#{{tags}}</a>
+                      </div>
+                    <p>{{data.text}}</p>
+                    <a target="_blank" href="{{data.link}}">{{data.link}}</a>
+                </mat-card-content>
+                <mat-card-actions>
+                  <img class="love_icon" src="{{likes}}" alt=""> {{data.likes}} Likes
+                  <button mat-button><img class="love_icon" src="{{comments}}" alt=""> Comments</button>
+                </mat-card-actions>
+              </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+<router-outlet></router-outlet>
+  
+  
