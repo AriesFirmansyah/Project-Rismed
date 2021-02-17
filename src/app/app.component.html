@@ -1,36 +1,31 @@
-<div class="uk-container uk-container-xsmall">
-  <div class="inline">
-    <div style="display: flex;">
-      <img src={{logo}} class="logo" alt="logo">
-      <p class="title">Rismed</p>
-    </div>
-  </div>
-  
-  <mat-tab-group style="display: inline-block;"  mat-align-tabs="center">
-    <mat-tab>
-      <ng-template mat-tab-label>
-        <a routerLink="/" style="width: 110px; color: black;">
-          <mat-icon class="example-tab-icon">home</mat-icon>
-        </a>
-      </ng-template>
-    </mat-tab>
-
-    <mat-tab>
-      <ng-template mat-tab-label>
-        <a routerLink="/userList" style=" width: 110px; color: black;">
-          <mat-icon class="example-tab-icon">view_list</mat-icon>
-        </a>
-      </ng-template>
-    </mat-tab> 
-  
-    <mat-tab>
-      <ng-template mat-tab-label>
-        <a routerLink="/tag" style="width: 110px; color: black;">
-          <mat-icon class="example-tab-icon">label</mat-icon>
-        </a>
-      </ng-template>
-    </mat-tab>
-  </mat-tab-group>
+<div class="uk-container uk-container-small text">
+  <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="200px">
+      <mat-grid-tile>
+        <mat-toolbar class="logoHeader" color="primary" >
+          <mat-toolbar-row>
+                <a routerLink="/" class="logoLink">
+                  <div style="display: flex;">
+                    <img src={{logo}} class="logo" alt="logo">
+                    <p class="title">Rismed</p>
+                  </div>
+                </a>
+          </mat-toolbar-row>
+          <mat-toolbar-row class="menuNavigasi">
+            <div class="uk-container uk-container-small">
+              <button routerLink="/" mat-icon-button>
+                <mat-icon>home</mat-icon>
+              </button>
+              <button routerLink="userList" mat-icon-button>
+                <mat-icon>view_list</mat-icon>
+              </button>
+              <button routerLink="/label" mat-icon-button class="example-icon">
+                <mat-icon>label</mat-icon>
+              </button>
+            </div>
+          </mat-toolbar-row>
+          </mat-toolbar>
+      </mat-grid-tile>
+  </mat-grid-list>
 </div>
 <router-outlet></router-outlet>
 

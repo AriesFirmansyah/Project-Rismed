@@ -9,9 +9,7 @@ import { DataService } from '../data.service';
 export class UserListComponent implements OnInit {
   users: any;
   constructor(private dataPost:DataService) { }
-  likes = "./../assets/images/likes.png"
-  profile = "./../assets/images/user.png"
-  comments = "./../assets/images/comments.png"
+  
   ngOnInit(): void {
     this.GetDataUserList();
   }

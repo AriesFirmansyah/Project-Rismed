@@ -1,5 +1,8 @@
+.cardContainer {
+    border-radius: 20px;
+    width: 250px;
+  }
 .imageProfile {
-    width: 300px;
-    padding-left: 30px;
+    max-width: 360px;
     height: 200px;
 }

@@ -1,1 +1,24 @@
-<p>user-profile works!</p>
+<div class="uk-container uk-container-small text" *ngIf="dataUser;else loading">
+    <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="570px" gutterSize="0px">
+        <mat-grid-tile>
+            <mat-card class="cardContainer uk-container uk-container-xsmall">
+                    <h2 class="userName" style="text-transform: capitalize;">{{dataUser.title}}. {{dataUser.firstName}} {{dataUser.lastName}}</h2>
+                <img class="imageProfile " mat-card-image src="{{dataUser.picture}}">
+                <mat-card-content class="cardContent uk-container uk-container-xsmall">
+                        <p><img class="pict2" src="{{dataID}}" alt="id">&nbsp;&nbsp;<b>ID</b> : {{dataUser.id}}</p>
+                        <p style="text-transform: capitalize;"><img class="pict2" src="{{gender}}" alt="gender">&nbsp;&nbsp;<b>Gender</b> : {{dataUser.gender}}</p>
+                        <p><img class="pict2" src="{{birthDate}}" alt="birth date">&nbsp;&nbsp;<b>Birth Date</b> : {{dataUser.dateOfBirth}}</p>
+                        <p><img class="pict2" src="{{registerDate}}" alt="id">&nbsp;&nbsp;<b>Register Date</b> : {{dataUser.registerDate | date: "medium"}}</p>
+                        <p><img class="pict2" src="{{email}}" alt="email">&nbsp;&nbsp;<b>Email</b> : {{dataUser.email}}</p>
+                        <p><img class="pict2" src="{{telp}}" alt="telepon number">&nbsp;&nbsp;<b>Phone</b> : {{dataUser.phone}}</p>
+                </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<ng-template #loading>
+  <mat-progress-bar class="uk-position-top" mode="indeterminate"></mat-progress-bar>
+</ng-template>
+<router-outlet></router-outlet>
+  

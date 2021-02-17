@@ -1,9 +1,6 @@
-mat-grid-tile {
-    background: lightblue;
-  }
 .cardContainer {
   border-radius: 30px;
-  max-width: 350px;
+  max-width: 100%;
 }
 .avatarProfile {
   border-radius: 50%;
@@ -17,6 +14,7 @@ mat-grid-tile {
 }
 .cardContent {
   word-wrap: break-word;
+  margin-top: -20px;
 }
 .tags {
   display: inline-flex;
@@ -25,13 +23,16 @@ mat-grid-tile {
   padding: 12px;
 }
 .imagePost {
-  padding-left: 30px;
-  width: 330px;
+  max-width: 360px;
   height: 200px;
 }
 .love_icon {
-  width: 27px;
+  width: 35px;
+  padding-left: 10px;
 }
 .comment_icon {
-  width: 27px;
+  width: 18px;
+}
+.text {
+  font-size: small;
 }

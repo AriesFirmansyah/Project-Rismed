@@ -1,20 +1,22 @@
-<div class="uk-container uk-container-xsmall">
-    <mat-grid-list cols="1" rowHeight="350" gutterSize="0px">
-        <mat-grid-tile *ngFor="let data of users.data" style="background-color: blueviolet;">
+<div class="uk-container uk-container-small text" *ngIf="users;else loading">
+    <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="350px" gutterSize="0px">
+        <mat-grid-tile *ngFor="let data of users.data">
             <mat-card class="cardContainer">
-                    <img class="imageProfile" mat-card-image src="{{data.picture}}">
-
-                <mat-card-content class="cardContent center">
-                    <p>{{data.title}}. {{data.firstName}} {{data.lastName}}</p>
-                    <p>{{data.email}}</p>
-                </mat-card-content>
-                <mat-card-actions class="center">
-                  <button mat-raised-button color="primary">View Profile</button>
-                </mat-card-actions>
-              </mat-card>
+                <img class="imageProfile" mat-card-image src="{{data.picture}}">
+            <mat-card-content class="cardContent center">
+                <p>{{data.title}}. {{data.firstName}} {{data.lastName}}</p>
+                <p>{{data.email}}</p>
+            </mat-card-content>
+            <mat-card-actions class="center">
+              <button routerLink="/userProfile/{{data.id}}" mat-raised-button color="primary">View Profile</button>
+            </mat-card-actions>
+          </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
 </div>
+
+<ng-template #loading>
+  <mat-progress-bar class="uk-position-top" mode="indeterminate"></mat-progress-bar>
+</ng-template>
 <router-outlet></router-outlet>
-  
   

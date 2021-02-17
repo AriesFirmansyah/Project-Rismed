@@ -9,8 +9,6 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit {
   posts:any;
-  rowspan = 1;
-  rowspanstat = true;
 
   likes = "./../assets/images/likes.png"
   profile = "./../assets/images/user.png"
