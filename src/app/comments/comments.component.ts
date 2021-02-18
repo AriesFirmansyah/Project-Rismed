@@ -22,7 +22,7 @@ export class CommentsComponent implements OnInit {
   GetDataComments() {
     this.Comments.GetComments(this.idPost.id).subscribe((comments) => {
       this.dataComments = comments;
-      console.log(this.dataComments.data);
+      // console.log(this.dataComments.data);
       if(this.dataComments.data.length != 0) this.commentStatus = true;
     })
   }

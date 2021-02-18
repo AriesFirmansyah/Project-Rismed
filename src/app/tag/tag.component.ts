@@ -74,22 +74,20 @@ export class TagComponent implements OnInit {
     this.tag = id;
     this.data.GetTags(this.tag).subscribe( (data) => {
       this.dataTags = data;
-      console.log(this.dataTags.data)
+      // console.log(this.dataTags.data)
     });
   }
   openComments(key: string) {
     this.dialog.open(CommentsComponent, {data: {id: key}});
-    console.log(key);
+    // console.log(key);
   }
   searchTag(key: string) {
     this.tag = key;
-    
-    console.log(this.tag)
+    // console.log(this.tag)
     this.router.navigate([`/tag/${this.tag}`]);
   }
   private _filterStates(value: string): State[] {
     const filterValue = value.toLowerCase();
-
     return this.states.filter(state => state.tagName.toLowerCase().indexOf(filterValue) === 0);
   }
 

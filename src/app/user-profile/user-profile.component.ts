@@ -38,18 +38,18 @@ export class UserProfileComponent implements OnInit {
   GetUserProfile(userid: any) {
     this.dataProfile.GetProfile(userid).subscribe( (data) => {
       this.dataUser = data;
-      console.log(this.dataUser);
+      // console.log(this.dataUser);
     })
   }
   GetUserPost(userid: any) {
     this.dataProfile.GetUserPosts(userid).subscribe( (data) => {
       this.userPost = data;
-      console.log(this.userPost.data)
+      // console.log(this.userPost.data)
     })
   }
   openComments(key: string) {
     this.dialog.open(CommentsComponent, {data: {id: key}});
-    console.log(key);
+    // console.log(key);
   }
 
 }
