@@ -1,4 +1,4 @@
-<div class="uk-container uk-container-small text" *ngIf="dataUser;else loading">
+<div class="uk-container uk-container-small text" *ngIf="dataUser && userPost;else loading">
     <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="570px" gutterSize="0px">
         <mat-grid-tile>
             <mat-card class="cardContainer uk-container uk-container-xsmall">
@@ -13,6 +13,32 @@
                         <p><img class="pict2" src="{{telp}}" alt="telepon number">&nbsp;&nbsp;<b>Phone</b> : {{dataUser.phone}}</p>
                 </mat-card-content>
           </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="500px" gutterSize="0px">
+        <mat-grid-tile *ngFor="let data of userPost.data">
+            <mat-card class="cardContainer2 center">
+                <mat-card-header>
+                  <div mat-card-avatar>
+                    <img class="avatarProfile" src="{{data.owner.picture}}" alt="Profile Picture">
+                  </div>
+                  <mat-card-title class="text textLeft">{{data.owner.firstName}} {{data.owner.lastName}}</mat-card-title>
+                  <mat-card-subtitle class="text">{{data.publishDate | date: "medium"}}</mat-card-subtitle>
+                </mat-card-header>
+                    <img class="imagePost" mat-card-image src="{{data.image}}">
+                <mat-card-content class="cardContent2 center text">
+                    <div class="tags" *ngFor="let tags of data.tags">
+                        <a routerLink="/tag/{{tags}}">#{{tags}}</a>
+                      </div>
+                    <p>{{data.text}}</p>
+                    <a target="_blank" href="{{data.link}}">{{data.link}}</a>
+                </mat-card-content>
+                <mat-card-actions>
+                  <img class="love_icon" src="{{likes}}" alt=""> {{data.likes}} Likes
+                  <button mat-button class="text" (click)="openComments(data.id)"><img class="comment_icon" src="{{comments}}" alt="comments"> Comments</button>
+                </mat-card-actions>
+              </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
 </div>

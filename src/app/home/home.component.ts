@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CommentsComponent } from '../comments/comments.component';
 import { DataService } from '../data.service';
 
 
@@ -14,7 +16,10 @@ export class HomeComponent implements OnInit {
   profile = "./../assets/images/user.png"
   comments = "./../assets/images/comments.png"
 
-  constructor(private dataPost:DataService) { }
+  constructor(
+    private dataPost:DataService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.GetDataPost();
@@ -24,5 +29,9 @@ export class HomeComponent implements OnInit {
       this.posts = data;
       console.log(this.posts.data);
     })
+  }
+
+  openComments(key: string) {
+    this.dialog.open(CommentsComponent, {data: {id: key}});
   }
 }

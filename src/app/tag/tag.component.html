@@ -1,2 +1,73 @@
-<p>tag works!</p>
+<div class="uk-container uk-container-small text" *ngIf="dataTags;else loading">
+  <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="45px" style="margin-top: -10px;">
+    <mat-grid-tile>
+      <h1><b>Search Tag :</b></h1>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="120px" style="margin-bottom: 20px;">
+    <mat-grid-tile>
+      <mat-toolbar class="searchWidth" color="primary" >
+        <mat-toolbar-row>
+            <form class="formCont uk-container uk-container-small">
+              <img class="searchIcon" src="{{searchIcon}}" alt="">
+                <mat-form-field class="searchCont">
+                  <mat-label>{{tag}}</mat-label>
+                  <input matInput
+                          aria-label="State"
+                          [matAutocomplete]="auto"
+                          [formControl]="stateCtrl"> 
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let state of filteredStates | async" [value]="state.tagName" (click)="searchTag(state.tagName)" aria-placeholder="animal">
+                      <span>#{{state.tagName}}</span>
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+            </form>
+        </mat-toolbar-row>
+        </mat-toolbar>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="525px" gutterSize="0px">
+    <mat-grid-tile *ngFor="let data of dataTags.data">
+        <mat-card class="cardContainer center">
+            <mat-card-header>
+              <div mat-card-avatar>
+                <img class="avatarProfile" src="{{data.owner.picture}}" alt="Profile Picture">
+              </div>
+              <mat-card-title class="text textLeft">{{data.owner.firstName}} {{data.owner.lastName}}</mat-card-title>
+              <mat-card-subtitle class="text">{{data.publishDate | date: "medium"}}</mat-card-subtitle>
+              <div class="menu_viewProfile">
+                <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Post menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                <button routerLink="/userProfile/{{data.owner.id}}" mat-menu-item>
+                  <img class="viewProfile" src="{{profile}}" alt="view profile">
+                  <span>View Profile</span>
+                </button>
+                </mat-menu>
+              </div>
+            </mat-card-header>
+                <img class="imagePost" mat-card-image src="{{data.image}}">
+            <mat-card-content class="cardContent center text">
+                <div class="tags" *ngFor="let tags of data.tags">
+                    <a routerLink="/tag/{{tags}}">#{{tags}}</a>
+                  </div>
+                <p>{{data.text}}</p>
+                <a target="_blank" href="{{data.link}}">{{data.link}}</a>
+            </mat-card-content>
+            <mat-card-actions>
+              <img class="love_icon" src="{{likes}}" alt=""> {{data.likes}} Likes
+              <button mat-button class="text" (click)="openComments(data.id)">
+                <img class="comment_icon" src="{{comments}}" alt="comments"> 
+                Comments
+              </button>
+            </mat-card-actions>
+          </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<ng-template #loading>
+  <mat-progress-bar class="uk-position-top" mode="indeterminate"></mat-progress-bar>
+</ng-template>
 <router-outlet></router-outlet>

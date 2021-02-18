@@ -17,7 +17,7 @@ export class DataService {
 
   key = {
     headers: new HttpHeaders ({
-      'app-id': '5fcf34885aa4d03b6d8505af',
+      'app-id': '5fce2709d9c8d31fbf260a65',
     }),
   }
   constructor(private http: HttpClient) { }
@@ -28,8 +28,12 @@ export class DataService {
   GetUsers() {
     return this.http.get(this.linkUser, this.key);
   }
+  GetUserPosts(id: string) {
+    return this.http.get(this.linkUser + `/${id}/post`, this.key);
+  }
   GetTags(id: string) {
     return this.http.get(this.linkTag + `/${id}/post`, this.key);
+    // return this.http.get(this.linkTag, this.key);
   }
   GetProfile(id: string) {
     return this.http.get(this.linkUser + `/${id}`, this.key);

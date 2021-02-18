@@ -30,7 +30,10 @@
                 </mat-card-content>
                 <mat-card-actions>
                   <img class="love_icon" src="{{likes}}" alt=""> {{data.likes}} Likes
-                  <button mat-button class="text"><img class="comment_icon" src="{{comments}}" alt="comments"> Comments</button>
+                  <button mat-button class="text" (click)="openComments(data.id)">
+                    <img class="comment_icon" src="{{comments}}" alt="comments"> 
+                    Comments
+                  </button>
                 </mat-card-actions>
               </mat-card>
         </mat-grid-tile>

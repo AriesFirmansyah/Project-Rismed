@@ -1,0 +1,65 @@
+.searchWidth {
+    width: 300px;
+    height: auto;
+    border-radius: 1000px;
+    padding: 19px;
+    padding-bottom: 0;
+    padding-left: 0px;
+}
+.formCont {
+    min-width: 150px;
+    max-width: 200px;
+    width: 100%;
+}
+.searchCont {
+    width: 100%;
+}
+.searchIcon {
+  width: 40px;
+  text-align: left;
+  margin-left: -10px;
+  padding-right: 10px;
+}
+.tagPicture {
+    width: 40px;
+}
+
+.cardContainer {
+    border-radius: 30px;
+    max-width: 100%;
+  }
+  .avatarProfile {
+    border-radius: 50%;
+  }
+  .menu_viewProfile {
+    margin-left: 10px;
+  }
+  .viewProfile {
+    width: 30px;
+    padding-right: 5px;
+  }
+  .cardContent {
+    word-wrap: break-word;
+    margin-top: -20px;
+  }
+  .tags {
+    display: inline-flex;
+  }
+  .tags a{
+    padding: 12px;
+  }
+  .imagePost {
+    max-width: 360px;
+    height: 200px;
+  }
+  .love_icon {
+    width: 35px;
+    padding-left: 10px;
+  }
+  .comment_icon {
+    width: 18px;
+  }
+  .text {
+    font-size: small;
+  }
+  

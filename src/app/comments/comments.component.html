@@ -1,0 +1,25 @@
+<div class="uk-container uk-container-xsmall" *ngIf="dataComments;else loading">
+    <h1 mat-dialog-title>Comments</h1>
+      <div *ngIf="commentStatus; else kosong">
+        <div *ngFor="let comments of dataComments.data">
+          <div mat-dialog-content>
+            <div class="commentContainer">
+              <img class="profilePict inline" src="{{comments.owner.picture}}" alt="user comments">
+              <div style="margin-top: 10px">
+                <p>{{comments.message}}</p>
+                <p style="border-bottom: 2px solid black;">{{comments.publishDate | date: "medium"}}</p>
+              </div>
+            </div>
+          </div>
+       </div>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>Close</button>
+      </div>
+  </div>
+  <ng-template #kosong>
+    <p>tidak ada komentar di postingan ini.</p>
+  </ng-template>
+  <ng-template #loading>
+    <mat-progress-bar class="uk-position-top" mode="indeterminate"></mat-progress-bar>
+  </ng-template>

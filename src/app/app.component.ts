@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'rismed';
   logo = 'assets/images/logo.png';
+  defaultTag = 'animal';
 }

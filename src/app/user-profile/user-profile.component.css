@@ -18,3 +18,43 @@
 .capitalized {
     text-transform: capitalize;
 }
+
+.cardContainer2 {
+    border-radius: 30px;
+    max-width: 100%;
+  }
+  .avatarProfile {
+    border-radius: 50%;
+  }
+  .menu_viewProfile {
+    margin-left: 10px;
+  }
+  .viewProfile {
+    width: 30px;
+    padding-right: 5px;
+  }
+  .cardContent2 {
+    word-wrap: break-word;
+    margin-top: -20px;
+  }
+  .tags {
+    display: inline-flex;
+  }
+  .tags a{
+    padding: 12px;
+  }
+  .imagePost {
+    max-width: 360px;
+    height: 200px;
+  }
+  .love_icon {
+    width: 35px;
+    padding-left: 10px;
+  }
+  .comment_icon {
+    width: 18px;
+  }
+  .text {
+    font-size: small;
+  }
+  

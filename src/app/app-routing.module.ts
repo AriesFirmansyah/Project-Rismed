@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CommentsComponent } from './comments/comments.component';
 import { HomeComponent } from './home/home.component';
 import { TagComponent } from './tag/tag.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -11,6 +12,10 @@ const routes: Routes = [
     component:HomeComponent
   },
   {
+    path: 'post/comments',
+    component: CommentsComponent
+  },
+  {
     path: 'userList',
     component: UserListComponent
   },
@@ -19,7 +24,7 @@ const routes: Routes = [
     component:UserProfileComponent
   },
   {
-    path: 'tag',
+    path: 'tag/:id',
     component: TagComponent
   },
   {

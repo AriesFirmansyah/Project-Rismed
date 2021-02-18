@@ -1,0 +1,10 @@
+.commentContainer {
+    display: flex; 
+    margin-top: 20px;
+}
+.profilePict {
+    border-radius: 50%;
+    width: 80px;
+    max-height: 70px;
+    margin-right: 20px;
+}
