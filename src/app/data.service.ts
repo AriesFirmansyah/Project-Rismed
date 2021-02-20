@@ -13,7 +13,6 @@ export class DataService {
   private linkPost = 'https://dummyapi.io/data/api/post';
   private linkUser = 'https://dummyapi.io/data/api/user';
   private linkTag = 'https://dummyapi.io/data/api/tag';
-  private linkPost1 = 'https://jsonplaceholder.typicode.com/posts'
 
   key = {
     headers: new HttpHeaders ({
@@ -33,7 +32,6 @@ export class DataService {
   }
   GetTags(id: string) {
     return this.http.get(this.linkTag + `/${id}/post`, this.key);
-    // return this.http.get(this.linkTag, this.key);
   }
   GetProfile(id: string) {
     return this.http.get(this.linkUser + `/${id}`, this.key);
