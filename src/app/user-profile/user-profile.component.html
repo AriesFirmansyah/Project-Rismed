@@ -1,50 +1,51 @@
 <div class="uk-container uk-container-small text" *ngIf="dataUser && userPost;else loading">
-    <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="570px" gutterSize="0px">
-        <mat-grid-tile>
-            <mat-card class="cardContainer uk-container uk-container-xsmall">
-                    <h2 class="userName" style="text-transform: capitalize;">{{dataUser.title}}. {{dataUser.firstName}} {{dataUser.lastName}}</h2>
-                <img class="imageProfile " mat-card-image src="{{dataUser.picture}}">
-                <mat-card-content class="cardContent uk-container uk-container-xsmall">
-                        <p><img class="pict2" src="{{dataID}}" alt="id">&nbsp;&nbsp;<b>ID</b> : {{dataUser.id}}</p>
-                        <p style="text-transform: capitalize;"><img class="pict2" src="{{gender}}" alt="gender">&nbsp;&nbsp;<b>Gender</b> : {{dataUser.gender}}</p>
-                        <p><img class="pict2" src="{{birthDate}}" alt="birth date">&nbsp;&nbsp;<b>Birth Date</b> : {{dataUser.dateOfBirth}}</p>
-                        <p><img class="pict2" src="{{registerDate}}" alt="id">&nbsp;&nbsp;<b>Register Date</b> : {{dataUser.registerDate | date: "medium"}}</p>
-                        <p><img class="pict2" src="{{email}}" alt="email">&nbsp;&nbsp;<b>Email</b> : {{dataUser.email}}</p>
-                        <p><img class="pict2" src="{{telp}}" alt="telepon number">&nbsp;&nbsp;<b>Phone</b> : {{dataUser.phone}}</p>
-                </mat-card-content>
-          </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
-
-    <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="500px" gutterSize="0px">
-        <mat-grid-tile *ngFor="let data of userPost.data">
-            <mat-card class="cardContainer2 center">
-                <mat-card-header>
-                  <div mat-card-avatar>
-                    <img class="avatarProfile" src="{{data.owner.picture}}" alt="Profile Picture">
+  <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="570px" gutterSize="0px">
+      <mat-grid-tile>
+          <mat-card class="cardContainer uk-container uk-container-xsmall">
+                  <h2 class="userName" style="text-transform: capitalize;">{{dataUser.title}}. {{dataUser.firstName}} {{dataUser.lastName}}</h2>
+              <img class="imageProfile " mat-card-image src="{{dataUser.picture}}">
+              <mat-card-content class="cardContent uk-container uk-container-xsmall">
+                      <p><img class="pict2" src="{{dataID}}" alt="id">&nbsp;&nbsp;<b>ID</b> : {{dataUser.id}}</p>
+                      <p style="text-transform: capitalize;"><img class="pict2" src="{{gender}}" alt="gender">&nbsp;&nbsp;<b>Gender</b> : {{dataUser.gender}}</p>
+                      <p><img class="pict2" src="{{birthDate}}" alt="birth date">&nbsp;&nbsp;<b>Birth Date</b> : {{dataUser.dateOfBirth}}</p>
+                      <p><img class="pict2" src="{{registerDate}}" alt="id">&nbsp;&nbsp;<b>Register Date</b> : {{dataUser.registerDate | date: "medium"}}</p>
+                      <p><img class="pict2" src="{{email}}" alt="email">&nbsp;&nbsp;<b>Email</b> : {{dataUser.email}}</p>
+                      <p><img class="pict2" src="{{telp}}" alt="telepon number">&nbsp;&nbsp;<b>Phone</b> : {{dataUser.phone}}</p>
+              </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+  </mat-grid-list>
+  
+  <div class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true">
+    <div *ngFor="let data of userPost.data">
+        <div class="uk-flex uk-flex-center uk-flex-middle" style="height: auto">
+          <mat-card class="cardContainer2 center">
+            <mat-card-header>
+              <div mat-card-avatar>
+                <img class="avatarProfile" src="{{data.owner.picture}}" alt="Profile Picture">
+              </div>
+              <mat-card-title class="text textLeft">{{data.owner.firstName}} {{data.owner.lastName}}</mat-card-title>
+              <mat-card-subtitle class="text">{{data.publishDate | date: "medium"}}</mat-card-subtitle>
+            </mat-card-header>
+                <img class="imagePost" mat-card-image src="{{data.image}}">
+            <mat-card-content class="cardContent2 center text">
+                <div class="tags" *ngFor="let tags of data.tags">
+                    <a routerLink="/tag/{{tags}}">#{{tags}}</a>
                   </div>
-                  <mat-card-title class="text textLeft">{{data.owner.firstName}} {{data.owner.lastName}}</mat-card-title>
-                  <mat-card-subtitle class="text">{{data.publishDate | date: "medium"}}</mat-card-subtitle>
-                </mat-card-header>
-                    <img class="imagePost" mat-card-image src="{{data.image}}">
-                <mat-card-content class="cardContent2 center text">
-                    <div class="tags" *ngFor="let tags of data.tags">
-                        <a routerLink="/tag/{{tags}}">#{{tags}}</a>
-                      </div>
-                    <p>{{data.text}}</p>
-                    <a target="_blank" href="{{data.link}}">{{data.link}}</a>
-                </mat-card-content>
-                <mat-card-actions>
-                  <img class="love_icon" src="{{likes}}" alt=""> {{data.likes}} Likes
-                  <button mat-button class="text" (click)="openComments(data.id)"><img class="comment_icon" src="{{comments}}" alt="comments"> Comments</button>
-                </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+                <p>{{data.text}}</p>
+                <a target="_blank" href="{{data.link}}">{{data.link}}</a>
+            </mat-card-content>
+            <mat-card-actions>
+              <img class="love_icon" src="{{likes}}" alt=""> {{data.likes}} Likes
+              <button mat-button class="text" (click)="openComments(data.id)"><img class="comment_icon" src="{{comments}}" alt="comments"> Comments</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+    </div>
+  </div>
 </div>
-
 <ng-template #loading>
-  <mat-progress-bar class="uk-position-top" mode="indeterminate"></mat-progress-bar>
+  <mat-progress-bar class="uk-position-top" mode="indeterminate" color="warn"></mat-progress-bar>
 </ng-template>
 <router-outlet></router-outlet>
   

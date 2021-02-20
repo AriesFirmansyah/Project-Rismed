@@ -1,47 +1,48 @@
 <div class="uk-container uk-container-small text" *ngIf="posts;else loading">
-    <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="500px" gutterSize="0px">
-        <mat-grid-tile *ngFor="let data of posts.data">
-            <mat-card class="cardContainer center">
-                <mat-card-header>
-                  <div mat-card-avatar>
-                    <img class="avatarProfile" src="{{data.owner.picture}}" alt="Profile Picture">
+  <div class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true">
+    <div *ngFor="let data of posts.data">
+        <div  class="uk-flex uk-flex-center uk-flex-middle" style="height: auto; background-color: aliceblue;">
+          <mat-card class="cardContainer center">
+            <mat-card-header>
+              <div mat-card-avatar>
+                <img class="avatarProfile" src="{{data.owner.picture}}" alt="Profile Picture">
+              </div>
+              <mat-card-title class="text textLeft">{{data.owner.firstName}} {{data.owner.lastName}}</mat-card-title>
+              <mat-card-subtitle class="text">{{data.publishDate | date: "medium"}}</mat-card-subtitle>
+              <div class="menu_viewProfile">
+                <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Post menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                <button routerLink="/userProfile/{{data.owner.id}}" mat-menu-item>
+                  <img class="viewProfile" src="{{profile}}" alt="view profile">
+                  <span>View Profile</span>
+                </button>
+                </mat-menu>
+              </div>
+            </mat-card-header>
+                <img class="imagePost" mat-card-image src="{{data.image}}">
+            <mat-card-content class="cardContent center text">
+                <div class="tags" *ngFor="let tags of data.tags">
+                    <a routerLink="/tag/{{tags}}">#{{tags}}</a>
                   </div>
-                  <mat-card-title class="text textLeft">{{data.owner.firstName}} {{data.owner.lastName}}</mat-card-title>
-                  <mat-card-subtitle class="text">{{data.publishDate | date: "medium"}}</mat-card-subtitle>
-                  <div class="menu_viewProfile">
-                    <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="Post menu">
-                        <mat-icon>more_vert</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu">
-                    <button routerLink="/userProfile/{{data.owner.id}}" mat-menu-item>
-                      <img class="viewProfile" src="{{profile}}" alt="view profile">
-                      <span>View Profile</span>
-                    </button>
-                    </mat-menu>
-                  </div>
-                </mat-card-header>
-                    <img class="imagePost" mat-card-image src="{{data.image}}">
-                <mat-card-content class="cardContent center text">
-                    <div class="tags" *ngFor="let tags of data.tags">
-                        <a routerLink="/tag/{{tags}}">#{{tags}}</a>
-                      </div>
-                    <p>{{data.text}}</p>
-                    <a target="_blank" href="{{data.link}}">{{data.link}}</a>
-                </mat-card-content>
-                <mat-card-actions>
-                  <img class="love_icon" src="{{likes}}" alt=""> {{data.likes}} Likes
-                  <button mat-button class="text" (click)="openComments(data.id)">
-                    <img class="comment_icon" src="{{comments}}" alt="comments"> 
-                    Comments
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+                <p>{{data.text}}</p>
+                <a target="_blank" href="{{data.link}}">{{data.link}}</a>
+            </mat-card-content>
+            <mat-card-actions>
+              <img class="love_icon" src="{{likes}}" alt=""> {{data.likes}} Likes
+              <button mat-button class="text" (click)="openComments(data.id)">
+                <img class="comment_icon" src="{{comments}}" alt="comments"> 
+                Comments
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+    </div>
+  </div>
 </div>
-
 <ng-template #loading>
-  <mat-progress-bar class="uk-position-top" mode="indeterminate"></mat-progress-bar>
+  <mat-progress-bar class="uk-position-top" mode="indeterminate" color="warn"></mat-progress-bar>
 </ng-template>
 
 <router-outlet></router-outlet>

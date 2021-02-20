@@ -1,8 +1,9 @@
 <div class="uk-container uk-container-small text" *ngIf="users;else loading">
-    <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="350px" gutterSize="0px">
-        <mat-grid-tile *ngFor="let data of users.data">
-            <mat-card class="cardContainer">
-                <img class="imageProfile" mat-card-image src="{{data.picture}}">
+  <div class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true">
+    <div *ngFor="let data of users.data">
+        <div class="uk-flex uk-flex-center uk-flex-middle" style="height: auto">
+          <mat-card class="cardContainer">
+            <img class="imageProfile" mat-card-image src="{{data.picture}}">
             <mat-card-content class="cardContent center">
                 <p>{{data.title}}. {{data.firstName}} {{data.lastName}}</p>
                 <p>{{data.email}}</p>
@@ -11,12 +12,12 @@
               <button routerLink="/userProfile/{{data.id}}" mat-raised-button color="primary">View Profile</button>
             </mat-card-actions>
           </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+        </div>
+    </div>
+  </div>
 </div>
-
 <ng-template #loading>
-  <mat-progress-bar class="uk-position-top" mode="indeterminate"></mat-progress-bar>
+  <mat-progress-bar class="uk-position-top" mode="indeterminate" color="warn"></mat-progress-bar>
 </ng-template>
 <router-outlet></router-outlet>
   

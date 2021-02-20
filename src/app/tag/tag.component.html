@@ -27,9 +27,10 @@
         </mat-toolbar>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="525px" gutterSize="0px">
-    <mat-grid-tile *ngFor="let data of dataTags.data">
-        <mat-card class="cardContainer center">
+  <div class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true">
+    <div *ngFor="let data of dataTags.data">
+        <div class="uk-flex uk-flex-center uk-flex-middle" style="height: auto">
+          <mat-card class="cardContainer center">
             <mat-card-header>
               <div mat-card-avatar>
                 <img class="avatarProfile" src="{{data.owner.picture}}" alt="Profile Picture">
@@ -64,10 +65,11 @@
               </button>
             </mat-card-actions>
           </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+        </div>
+    </div>
+  </div>
 </div>
 <ng-template #loading>
-  <mat-progress-bar class="uk-position-top" mode="indeterminate"></mat-progress-bar>
+  <mat-progress-bar class="uk-position-top" mode="indeterminate" color="warn"></mat-progress-bar>
 </ng-template>
 <router-outlet></router-outlet>

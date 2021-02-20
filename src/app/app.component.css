@@ -1,6 +1,6 @@
 .logoHeader {
-    width: 500px; 
-    border-radius: 10px;
+    width: auto; 
+    margin-bottom: 40px;
 }
 .logoLink {
     text-decoration: none;

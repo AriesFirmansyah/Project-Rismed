@@ -1,31 +1,27 @@
-<div class="uk-container uk-container-small text">
-  <mat-grid-list class="uk-container uk-container-xsmall" cols="1" rowHeight="200px">
-      <mat-grid-tile>
-        <mat-toolbar class="logoHeader" color="primary" >
-          <mat-toolbar-row>
-                <a routerLink="/" class="logoLink">
-                  <div style="display: flex;">
-                    <img src={{logo}} class="logo" alt="logo">
-                    <p class="title">Rismed</p>
-                  </div>
-                </a>
-          </mat-toolbar-row>
-          <mat-toolbar-row class="menuNavigasi">
-            <div class="uk-container uk-container-small">
-              <button routerLink="/" mat-icon-button>
-                <mat-icon>home</mat-icon>
-              </button>
-              <button routerLink="/userList" mat-icon-button>
-                <mat-icon>view_list</mat-icon>
-              </button>
-              <button routerLink="/tag/{{defaultTag}}" mat-icon-button class="example-icon">
-                <mat-icon>label</mat-icon>
-              </button>
+<p>
+  <mat-toolbar class="logoHeader" color="primary" >
+    <mat-toolbar-row class="uk-container uk-container-small">
+          <a routerLink="/" class="logoLink">
+            <div style="display: flex;">
+              <img src={{logo}} class="logo" alt="logo">
+              <p class="title">Rismed</p>
             </div>
-          </mat-toolbar-row>
-          </mat-toolbar>
-      </mat-grid-tile>
-  </mat-grid-list>
-</div>
+          </a>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="menuNavigasi">
+      <div class="uk-container uk-container-small">
+        <button routerLink="/" mat-icon-button>
+          <mat-icon>home</mat-icon>
+        </button>
+        <button routerLink="/userList" mat-icon-button>
+          <mat-icon>view_list</mat-icon>
+        </button>
+        <button routerLink="/tag/{{defaultTag}}" mat-icon-button class="example-icon">
+          <mat-icon>label</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
 <router-outlet></router-outlet>
 
