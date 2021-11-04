@@ -10,14 +10,13 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class DataService {
 
-  private linkPost = 'https://dummyapi.io/data/api/post';
-  private linkUser = 'https://dummyapi.io/data/api/user';
-  private linkTag = 'https://dummyapi.io/data/api/tag';
-  private linkPost1 = 'https://jsonplaceholder.typicode.com/posts'
+  private linkPost = 'https://dummyapi.io/data/v1/post';
+  private linkUser = 'https://dummyapi.io/data/v1/user';
+  private linkTag = 'https://dummyapi.io/data/v1/tag';
 
   key = {
     headers: new HttpHeaders ({
-      'app-id': '5fcc785cc6e7aa7dad0825b2',
+      'app-id': '61708003c4a684daf60da11b',
     }),
   }
   constructor(private http: HttpClient) { }

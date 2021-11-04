@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   GetDataPost() {
     this.dataPost.GetPosts().subscribe((data) => {
       this.posts = data;
-      // console.log(this.posts.data);
+      console.log(this.posts.data);
     })
   }
 
