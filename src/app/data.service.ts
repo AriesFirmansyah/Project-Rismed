@@ -10,9 +10,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class DataService {
 
-  private linkPost = 'https://dummyapi.io/data/v1/post';
-  private linkUser = 'https://dummyapi.io/data/v1/user';
-  private linkTag = 'https://dummyapi.io/data/v1/tag';
+  private linkPost = 'https://dummyapi.io/data/api/post';
+  private linkUser = 'https://dummyapi.io/data/api/user';
+  private linkTag = 'https://dummyapi.io/data/api/tag';
 
   key = {
     headers: new HttpHeaders ({
@@ -32,7 +32,6 @@ export class DataService {
   }
   GetTags(id: string) {
     return this.http.get(this.linkTag + `/${id}/post`, this.key);
-    // return this.http.get(this.linkTag, this.key);
   }
   GetProfile(id: string) {
     return this.http.get(this.linkUser + `/${id}`, this.key);
