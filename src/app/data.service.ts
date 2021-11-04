@@ -10,9 +10,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class DataService {
 
-  private linkPost = 'https://dummyapi.io/data/api/post';
-  private linkUser = 'https://dummyapi.io/data/api/user';
-  private linkTag = 'https://dummyapi.io/data/api/tag';
+  private linkPost = 'https://dummyapi.io/data/v1/post';
+  private linkUser = 'https://dummyapi.io/data/v1/user';
+  private linkTag = 'https://dummyapi.io/data/v1/tag';
 
   key = {
     headers: new HttpHeaders ({
